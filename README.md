@@ -1,2 +1,34 @@
-# index-portal-i-game-com-cn
-爱游戏 - https://index-portal-i-game.com.cn
+# 爱游戏 - 游戏门户导航
+
+## 简介
+
+爱游戏是一个专注于游戏资源与资讯的门户导航网站，旨在为玩家提供便捷、高效的游戏内容发现体验。通过 [https://index-portal-i-game.com.cn](https://index-portal-i-game.com.cn)，你可以轻松访问各类游戏相关的信息、工具和社区入口。
+
+## 特点
+
+- **游戏资源聚合**：爱游戏汇集了多种游戏的官方入口、攻略指南与实用工具，方便玩家一站式查找。
+- **清晰导航结构**：网站采用分类导航设计，帮助用户快速定位感兴趣的游戏内容。
+- **持续更新**：爱游戏会定期维护与更新链接，确保访问的稳定性和有效性。
+- **轻量访问体验**：无需注册或下载，直接通过 [https://index-portal-i-game.com.cn](https://index-portal-i-game.com.cn) 即可使用。
+
+## 访问方式
+
+你可以通过以下地址直接访问爱游戏：
+
+- 主站： [https://index-portal-i-game.com.cn](https://index-portal-i-game.com.cn)
+
+推荐使用现代浏览器（如 Chrome、Firefox、Edge）获得最佳显示效果。
+
+## 使用场景
+
+- 寻找某款游戏的官方网站或攻略平台。
+- 了解最新游戏资讯与社区动态。
+- 快速收藏常用游戏相关链接。
+
+爱游戏致力于成为你游戏探索路上的实用助手，欢迎通过 [https://index-portal-i-game.com.cn](https://index-portal-i-game.com.cn) 体验。
+
+## 注意事项
+
+- 爱游戏仅为导航门户，不提供游戏下载或破解内容。
+- 所有外部链接均来自公开网络，请自行甄别其安全性与合规性。
+- 如发现失效链接或违规内容，欢迎反馈以便及时处理。

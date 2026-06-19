@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>爱游戏 · 平台速查知识库</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f5f9fc;
+      color: #1d2c3a;
+      line-height: 1.55;
+      padding: 1.2rem 1rem 2.8rem;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* 目录感布局 — 网格卡片系统 */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+    @media (min-width: 580px) {
+      body { padding: 1.8rem 2rem 3.2rem; }
+      .grid-2col { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 800px) {
+      .grid-3col {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.4rem 1.2rem;
+      box-shadow: 0 4px 14px rgba(0, 40, 50, 0.04);
+      border: 1px solid #d9e9ef;
+      transition: box-shadow 0.2s, transform 0.1s;
+    }
+    .card:hover { box-shadow: 0 8px 22px rgba(20, 100, 120, 0.08); }
+    .card-accent {
+      border-left: 4px solid #2f9eaa;
+      background: #f6fdff;
+    }
+    .card-subtle {
+      background: #f0f8fb;
+      border-color: #c2dfe8;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #0d3b44;
+      margin-bottom: 0.25rem;
+    }
+    .subhead {
+      font-size: 0.95rem;
+      color: #46737e;
+      border-bottom: 1px solid #cde3ea;
+      padding-bottom: 0.9rem;
+      margin-bottom: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .badge {
+      background: #ddf0f3;
+      color: #126f7a;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      white-space: nowrap;
+    }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #144f59;
+      margin-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1a5e6b;
+      margin: 0.8rem 0 0.3rem;
+    }
+    p, li {
+      font-size: 0.92rem;
+      color: #1f3d47;
+    }
+    .small-meta {
+      font-size: 0.78rem;
+      color: #57858f;
+    }
+    ul, ol {
+      padding-left: 1.3rem;
+      margin-top: 0.2rem;
+      margin-bottom: 0.6rem;
+    }
+    li { margin-bottom: 0.2rem; }
+    a {
+      color: #107582;
+      text-decoration: none;
+      border-bottom: 1px solid #b3dae5;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    a:hover, a:focus {
+      color: #084b55;
+      border-bottom-color: #084b55;
+    }
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid #3ba3b0;
+      background: transparent;
+      color: #107582;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      transition: 0.15s;
+      text-decoration: none;
+      border-bottom: 1px solid #3ba3b0;
+    }
+    .btn-outline:hover {
+      background: #e1f3f7;
+      border-color: #1a7f8c;
+      color: #06434e;
+    }
+    .faq-item {
+      margin-bottom: 1rem;
+      border-bottom: 1px dashed #d0e3ea;
+      padding-bottom: 0.7rem;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-weight: 600;
+      color: #124d58;
+      font-size: 0.88rem;
+      margin-bottom: 0.15rem;
+    }
+    .faq-a {
+      font-size: 0.86rem;
+      color: #2c5965;
+    }
+    .tip-box {
+      background: #e4f4f7;
+      border-radius: 14px;
+      padding: 1rem 1.2rem;
+      border: 1px solid #b6dbe5;
+      margin: 1.2rem 0 0.6rem;
+    }
+    .dot-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .dot-list li {
+      padding-left: 1.2rem;
+      position: relative;
+      margin-bottom: 0.35rem;
+    }
+    .dot-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #319ca9;
+      font-weight: bold;
+    }
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.6rem;
+      margin-top: 0.4rem;
+    }
+    .tag {
+      background: #e8f2f5;
+      color: #146c78;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      border: 1px solid #b6d5df;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #cfe2e9;
+      margin: 1.2rem 0;
+    }
+    .footer-note {
+      font-size: 0.75rem;
+      color: #64848e;
+      text-align: center;
+      padding-top: 1.6rem;
+      border-top: 1px solid #d2e4eb;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 标题区 + 标识 -->
+  <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem 0.8rem;">
+    <h1>爱游戏 · 速查索引</h1>
+    <span class="badge">资源导航 · v1.2</span>
+  </div>
+  <div class="subhead">
+    <span>识别平台定位 · 快速了解用途</span>
+    <span class="small-meta">知识库型目录</span>
+  </div>
+
+  <!-- hero 摘要区：一句话定位 + 链接自然嵌入 -->
+  <div class="card card-accent" style="margin-bottom: 1.2rem;">
+    <p style="font-size: 0.98rem; font-weight: 400;">
+      若您希望快速判断某个游戏信息平台是否适合自己，可以先了解
+      <a href="https://index-portal-i-game.com.cn">爱游戏</a>
+      的核心服务范畴：它聚合了游戏资讯、活动提醒、社区动态及基础资源索引。
+      以下卡片从不同维度拆解平台特性，便于您按需查阅。
+    </p>
+    <div class="tag-group" style="margin-top: 0.6rem;">
+      <span class="tag">游戏资讯</span>
+      <span class="tag">索引目录</span>
+      <span class="tag">社区信息</span>
+      <span class="tag">活动提醒</span>
+    </div>
+  </div>
+
+  <!-- 网格卡片：信息密度区 2列 / 3列 -->
+  <div class="grid-2col" style="margin-top: 0.8rem;">
+
+    <!-- 卡片1：平台概况 -->
+    <div class="card">
+      <h2>📋 平台概况</h2>
+      <ul class="dot-list">
+        <li>涵盖多品类游戏资讯与版本动态</li>
+        <li>提供官方活动的聚合提醒</li>
+        <li>索引型页面，非直接下载或充值入口</li>
+        <li>面向希望快速检索游戏信息的用户</li>
+      </ul>
+      <div class="small-meta" style="margin-top: 0.5rem;">
+        适用场景：信息收集、版本跟踪
+      </div>
+    </div>
+
+    <!-- 卡片2：内容特点 -->
+    <div class="card">
+      <h2>🧩 内容特点</h2>
+      <ul style="list-style-type: '▪ '; padding-left: 1.1rem;">
+        <li>以中文内容为主，兼顾常见游戏专题</li>
+        <li>页面结构偏向知识库 / 导航风格</li>
+        <li>无强制注册，浏览权限开放</li>
+        <li>信息更新频率视具体游戏而定</li>
+      </ul>
+    </div>
+
+    <!-- 卡片3：相关区域 / 提示区 -->
+    <div class="card card-subtle">
+      <h2>💡 提示区</h2>
+      <p style="font-size: 0.9rem;">
+        · 首次使用建议先浏览首页索引，了解分类方式。<br>
+        · 部分外部链接会跳转到合作社区或官方站点。<br>
+        · 若遇到页面变动，可返回
+        <a href="https://index-portal-i-game.com.cn">爱游戏</a>
+        重新定位。
+      </p>
+      <div style="margin-top: 0.5rem; font-size: 0.85rem; background: #d9edf2; padding: 0.3rem 0.8rem; border-radius: 30px; display: inline-block;">
+        ⏳ 建议启用桌面端视图获得完整卡片布局
+      </div>
+    </div>
+
+    <!-- 卡片4：使用场景摘要 -->
+    <div class="card">
+      <h2>📌 常见使用场景</h2>
+      <ol style="margin-top: 0.2rem;">
+        <li>查找近期游戏更新公告</li>
+        <li>了解某个游戏的主题活动时间线</li>
+        <li>快速浏览同类别游戏推荐索引</li>
+        <li>通过站内导航跳转至对应社区讨论区</li>
+      </ol>
+      <div class="small-meta" style="margin-top: 0.4rem;">* 部分功能依赖外部链接</div>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要区 + 更多说明 -->
+  <hr>
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: flex-start;">
+    <div style="flex: 1; min-width: 220px;">
+      <h2 style="margin-top: 0;">❓ 快速 FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q">这个站点是官方游戏平台吗？</div>
+        <div class="faq-a">它是一个信息索引与入口型页面，聚合各游戏相关资源，不属于单一游戏的官方站点。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">需要注册或付费才能使用吗？</div>
+        <div class="faq-a">不强制注册，所有索引内容开放浏览。部分第三方链接可能有自身规则。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">内容更新由谁维护？</div>
+        <div class="faq-a">由站点运营方根据游戏公开信息与社区动态进行整理，建议以游戏官方公告为准。</div>
+      </div>
+    </div>
+
+    <!-- 相关信息区 / 额外提示 -->
+    <div style="flex: 1; min-width: 200px;">
+      <div class="tip-box">
+        <h3 style="margin-top: 0; font-size: 0.95rem;">📎 相关信息</h3>
+        <ul style="margin-bottom: 0; font-size: 0.85rem;">
+          <li>页面布局适合快速浏览，卡片分类持续优化</li>
+          <li>与外部游戏社区、资讯站保持独立引用关系</li>
+          <li>建议将
+            <a href="https://index-portal-i-game.com.cn">爱游戏</a>
+            加入书签以便日常查找</li>
+        </ul>
+      </div>
+      <div style="background: #ffffff; border-radius: 14px; padding: 0.8rem 1rem; border: 1px solid #d5e7ed; margin-top: 1rem;">
+        <div style="font-weight: 500; color: #104f5a; font-size: 0.85rem;">🔹 目录标识</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.3rem 0.8rem; margin-top: 0.2rem;">
+          <span style="font-size:0.8rem;">🏷️ 游戏分类</span>
+          <span style="font-size:0.8rem;">🏷️ 活动提醒</span>
+          <span style="font-size:0.8rem;">🏷️ 社区索引</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 附加说明区：非模板化段落 -->
+  <hr>
+  <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 0.2rem;">
+    <div style="flex: 1; min-width: 180px;">
+      <h2 style="font-size: 1rem;">📚 知识库式目录感</h2>
+      <p style="font-size: 0.86rem;">卡片按主题分组，每个区域可独立阅读。您可以根据需要快速定位到平台概况、内容特点或提示区，不必顺序浏览。</p>
+    </div>
+    <div style="flex: 1; min-width: 180px;">
+      <h2 style="font-size: 1rem;">⚙️ 移动端友好调整</h2>
+      <p style="font-size: 0.86rem;">卡片在窄屏设备上自动切换为单列，按钮与链接区域留有合适间距，便于触摸操作。蓝绿色点缀保持视觉统一。</p>
+    </div>
+    <div style="flex: 1; min-width: 150px;">
+      <h2 style="font-size: 1rem;">🔍 信息密度说明</h2>
+      <p style="font-size: 0.86rem;">本页面以紧凑方式呈现多个功能区，避免冗余描述，适合希望短时间了解
+        <a href="https://index-portal-i-game.com.cn">爱游戏</a>
+        定位的用户。</p>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    索引页 · 内容基于公开信息整理 · 具体游戏动态请以官方渠道为准
+  </div>
+
+</div>
+</body>
+</html>
