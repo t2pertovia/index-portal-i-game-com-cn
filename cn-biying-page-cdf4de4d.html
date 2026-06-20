@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>必赢 · 信息索引与资料整理平台</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+      background-color: #f7f9fb;
+      color: #1e2a36;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 760px;
+      padding: 0 24px;
+    }
+
+    /* hero */
+    .hero {
+      padding: 80px 0 48px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #0e1b29;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: #1e6f5c;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: #3f4b57;
+      max-width: 560px;
+      margin: 0 auto 20px;
+      padding: 0 4px;
+    }
+
+    .hero-meta {
+      display: inline-block;
+      background: #e6edf2;
+      border-radius: 60px;
+      padding: 8px 22px;
+      font-size: 0.9rem;
+      color: #1e3a4b;
+    }
+
+    /* 通用 section */
+    section {
+      margin: 52px 0;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      border-bottom: 2px solid #d6e0e8;
+      padding-bottom: 10px;
+      margin-bottom: 28px;
+      color: #13222f;
+    }
+
+    .section-sub {
+      font-size: 0.98rem;
+      color: #4a5b69;
+      margin-bottom: 28px;
+    }
+
+    /* 优势卡片网格 */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 24px 18px 22px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.04);
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .card h3 {
+      font-size: 1.18rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: #1b2b3b;
+    }
+
+    .card p {
+      font-size: 0.94rem;
+      color: #3b4b58;
+    }
+
+    /* 说明区 (窄排版) */
+    .explain-block {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 32px 28px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .explain-block p {
+      margin-bottom: 18px;
+      font-size: 1rem;
+      color: #25333f;
+    }
+
+    .explain-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .inline-link {
+      color: #1e6f5c;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .inline-link:hover {
+      border-bottom-color: #1e6f5c;
+    }
+
+    /* faq 摘要 */
+    .faq-item {
+      margin-bottom: 20px;
+    }
+
+    .faq-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      font-size: 1.08rem;
+      color: #13222f;
+      margin-bottom: 6px;
+    }
+
+    .faq-a {
+      font-size: 0.94rem;
+      color: #3b4b58;
+      padding-left: 6px;
+      border-left: 3px solid #d2dee8;
+      padding-left: 14px;
+    }
+
+    .faq-a a {
+      color: #1e6f5c;
+      text-decoration: none;
+      border-bottom: 1px dotted #b7cdc2;
+    }
+
+    .faq-a a:hover {
+      border-bottom-style: solid;
+    }
+
+    /* 底部 */
+    .footer-links {
+      margin: 60px 0 40px;
+      padding-top: 28px;
+      border-top: 1px solid #dce4ec;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px 30px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a {
+      color: #3f5a6b;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    .footer-links a:hover {
+      border-bottom-color: #3f5a6b;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: #667a8a;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    /* 响应 */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .explain-block {
+        padding: 24px 18px;
+      }
+
+      .container {
+        padding: 0 18px;
+      }
+
+      .hero {
+        padding: 64px 0 32px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .section-title {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- hero -->
+    <header class="hero">
+      <h1>索引 · 整理 · <span>必赢</span></h1>
+      <p>在信息过载的时代，快速定位可信资料、高效管理知识碎片，是每个研究者的刚需。<br>必赢提供轻量级的信息索引方案，让资料整理回归简洁。</p>
+      <div class="hero-meta">基于分类‑标签‑检索的文档枢纽</div>
+    </header>
+
+    <!-- 优势区 -->
+    <section>
+      <h2 class="section-title">优势与特点</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>多维索引</h3>
+          <p>支持标签、目录、时间轴线三种组织方式，适配论文、笔记、报告等不同场景。</p>
+        </div>
+        <div class="card">
+          <h3>低噪界面</h3>
+          <p>克制设计，聚焦内容本身。无广告弹窗、无推荐流干扰，阅读体验干净。</p>
+        </div>
+        <div class="card">
+          <h3>跨平台同步</h3>
+          <p>基于网页标准，桌面与移动端一致。利用浏览器存储或自选后端，数据归你。</p>
+        </div>
+        <div class="card">
+          <h3>结构导出</h3>
+          <p>可导出为 Markdown、CSV 或纯文本清单，方便纳入个人知识库流程。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 说明区：从资料整理与信息索引角度切入 -->
+    <section>
+      <h2 class="section-title">从索引到理解</h2>
+      <div class="explain-block">
+        <p>资料整理的核心不是“收藏”，而是“可检索性”。<a href="https://cn-biying.com" class="inline-link">必赢</a> 在设计之初就围绕“索引效率”展开：每条资料只需添加标题、来源、标签与简短摘要，就能在后续检索时快速定位。这种克制避免了复杂文件夹结构带来的维护负担。</p>
+        <p>对于长期研究者而言，信息索引的生命周期往往持续数年。必赢通过纯文本化的数据格式，降低了迁移成本。你可以在任意阶段将数据导入其他工具，或直接以当前界面作为永久查阅入口。平台不锁定内容，只提供结构。</p>
+        <p>场景上，从学术文献管理、项目文档梳理，到个人阅读清单跟踪，都可以借用同一套索引逻辑。每个条目的“摘要字段”尤其适合快速回顾，而不必重新打开原始文件。</p>
+      </div>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section>
+      <h2 class="section-title">常见问题 · 摘要</h2>
+      <div class="faq-item">
+        <div class="faq-q">资料存储在哪里？是否安全？</div>
+        <div class="faq-a">默认数据保存在浏览器本地。你也可以通过配置使用自己的 WebDAV 或 GitHub 仓库同步，内容始终由你控制。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">支持哪些类型的资料？</div>
+        <div class="faq-a">任何可被标题+描述+链接/标签描述的条目：网页书签、PDF 笔记、课程记录、代码片段等。纯文本索引，不限制格式。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">与其他笔记工具的区别？</div>
+        <div class="faq-a"><a href="https://cn-biying.com">必赢</a> 强调“索引”而非“写作”。不做富文本编辑器，不做白板，只做最快到达资料的中转站。适合已经拥有其他存储方案、但缺少统一查找入口的用户。</div>
+      </div>
+    </section>
+
+    <!-- 底部链接 -->
+    <footer class="footer-links">
+      <a href="https://cn-biying.com">必赢</a>
+      <a href="https://cn-biying.com/about">关于</a>
+      <a href="https://cn-biying.com/privacy">隐私说明</a>
+      <a href="https://cn-biying.com/status">服务状态</a>
+    </footer>
+    <div class="copyright">
+      简洁信息索引 · 资料整理
+    </div>
+  </div>
+</body>
+</html>
