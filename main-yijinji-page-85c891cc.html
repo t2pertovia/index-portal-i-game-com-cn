@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>一竞技 · 竞技知识自留地</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Noto Serif SC", "Source Han Serif SC", "Times New Roman", serif;
+      background: linear-gradient(145deg, #fde9d8 0%, #f7d9c4 50%, #f0cdb5 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.2rem;
+      line-height: 1.7;
+      color: #3e2e26;
+    }
+    .card {
+      max-width: 820px;
+      width: 100%;
+      background: #fffbee;
+      border-radius: 36px;
+      padding: 2.8rem 2.6rem;
+      box-shadow: 0 20px 40px rgba(140, 80, 50, 0.15), 0 8px 16px rgba(0,0,0,0.04);
+      transition: all 0.25s ease;
+    }
+    @media (max-width: 600px) {
+      body { padding: 1.2rem 0.8rem; }
+      .card { padding: 2rem 1.4rem; border-radius: 28px; }
+    }
+    .article-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 0 0 0.3rem 0;
+      color: #4d3328;
+      line-height: 1.2;
+      position: relative;
+      display: inline-block;
+    }
+    .article-title::after {
+      content: '';
+      display: block;
+      width: 52px;
+      height: 4px;
+      background: #d49e7a;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+    .subhead {
+      font-size: 1.05rem;
+      color: #7c5f50;
+      margin: 1rem 0 1.8rem 0;
+      font-style: italic;
+      border-left: 3px solid #d9b094;
+      padding-left: 1rem;
+      opacity: 0.85;
+    }
+    .body-text {
+      margin: 1.2rem 0;
+      font-size: 1.02rem;
+      text-align: justify;
+    }
+    .body-text strong {
+      color: #7a4f38;
+      font-weight: 600;
+    }
+    .blockquote-tip {
+      background: #f6ede6;
+      border-radius: 20px;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-left: 6px solid #c79070;
+      font-style: normal;
+      color: #503b30;
+      box-shadow: inset 0 2px 6px rgba(100,60,30,0.04);
+    }
+    .blockquote-tip p {
+      margin: 0.3rem 0;
+    }
+    .blockquote-tip .tip-label {
+      display: inline-block;
+      background: #dcb79c;
+      color: #2d1e16;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 2px 12px;
+      border-radius: 40px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .inline-link {
+      color: #8f5d3f;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid #e0c0ab;
+      transition: border-color 0.15s, color 0.2s;
+      padding-bottom: 1px;
+    }
+    .inline-link:hover {
+      border-bottom-color: #b27d5e;
+      color: #673f2b;
+    }
+    .read-more-line {
+      margin: 2.2rem 0 0.8rem 0;
+      font-size: 0.96rem;
+      color: #5f463a;
+      border-top: 1px dashed #dac2b2;
+      padding-top: 1.6rem;
+      text-align: center;
+    }
+    .read-more-line a {
+      display: inline-block;
+      background: #cfa481;
+      color: #2d1d14;
+      text-decoration: none;
+      padding: 0.4rem 1.6rem;
+      border-radius: 60px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 4px 8px rgba(140, 80, 40, 0.10);
+      margin-top: 4px;
+    }
+    .read-more-line a:hover {
+      background: #c19373;
+      transform: scale(1.02);
+    }
+    .faq-mini {
+      margin: 2rem 0 0.6rem 0;
+      background: #f8f0e9;
+      border-radius: 24px;
+      padding: 1.3rem 1.6rem;
+    }
+    .faq-mini h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #4f3629;
+      margin-bottom: 0.4rem;
+    }
+    .faq-mini details {
+      margin: 0.5rem 0;
+    }
+    .faq-mini summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: #633f2d;
+      padding: 0.2rem 0;
+      transition: color 0.1s;
+    }
+    .faq-mini summary:hover {
+      color: #3f281d;
+    }
+    .faq-mini details p {
+      margin: 0.6rem 0 0.2rem 1rem;
+      color: #4b382e;
+      font-size: 0.96rem;
+    }
+    .closing-sentence {
+      text-align: right;
+      font-size: 0.98rem;
+      margin-top: 1.8rem;
+      color: #6f5040;
+      padding-right: 0.2rem;
+    }
+    .subtle-decoration {
+      display: inline-block;
+      width: 30px;
+      height: 2px;
+      background: #cdac95;
+      margin: 0 6px 4px 0;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+  <h1 class="article-title">竞技叙事的另一面</h1>
+  <div class="subhead">不是每一次对抗都关于胜负，更多时候，竞技关乎认知与选择。</div>
+
+  <p class="body-text">
+    电子竞技从诞生之初就被打上了“反应速度”“手速”“天赋”的标签。但若将视野放宽，竞技其实是一种<strong>动态决策的演练场</strong>：每一次读图、每一波拉扯、每一秒的资源交换，背后都是瞬间的信息整合与策略推导。这种能力并不局限于游戏内——它正在成为数字时代的一种基础素养。
+  </p>
+
+  <p class="body-text">
+    许多爱好者最初只是被高光集锦吸引，然后逐渐发现自己开始关注局势阅读、阵容克制、经济曲线。这种从“看热闹”到“看门道”的过渡，恰好是认知升级的自然路径。而一个好的竞技平台，应该能承接这种从兴趣到钻研的热情，并提供清晰、低噪的信息环境。
+  </p>
+
+  <div class="blockquote-tip">
+    <span class="tip-label">📌 观察笔记</span>
+    <p>“竞技的深度不在于操作有多花哨，而在于你是否读懂了对手的思维惯性。真正精彩的对局，往往在交锋之前已经开始了心理层面的博弈。”</p>
+    <p style="margin-top:6px; font-size:0.9rem; opacity:0.75;">—— 摘自某位资深观赛者的笔记</p>
+  </div>
+
+  <p class="body-text">
+    如果你也有类似的感受——希望在竞技内容里找到比“击杀集锦”更多的东西，那么或许可以留意一下 <a href="https://main-yijinji.com" class="inline-link">一竞技</a> 所呈现的内容视角。它不追求爆点式的标题，而是在赛事解读、版本观察、选手思路等维度保持一种平实但专业的语气。对于想要系统理解竞技逻辑的读者来说，这是一个难得的信息源。
+  </p>
+
+  <p class="body-text">
+    从更广义的角度看，竞技本身就是一种沟通语言。不同赛区、不同风格的队伍在同一个规则框架下碰撞，文化与战术相互渗透。我们观察胜负，更是在观察人类如何在高压下做出理性或直觉的抉择。这种观察习惯一旦养成，会悄然改变你观看任何比赛的方式。
+  </p>
+
+  <div class="faq-mini">
+    <h3>❓ 一些常见的好奇</h3>
+    <details>
+      <summary>为什么说竞技不止是“打游戏”？</summary>
+      <p>竞技的核心在于结构化对抗——有规则、有目标、有反馈。这与传统体育、棋类甚至商业谈判的逻辑是相通的。理解竞技，其实是理解一种决策模型。</p>
+    </details>
+    <details>
+      <summary>新手如何开始“看懂”一场比赛？</summary>
+      <p>建议从单一位置或单一英雄的视角切入，先忽略全局，专注观察一个人的资源获取与风险判断。当你开始预判他的下一步时，你就已经入门了。</p>
+    </details>
+    <details>
+      <summary>内容平台那么多，为什么选一竞技？</summary>
+      <p>不是“选”，而是“遇到”。如果在众多快节奏信息中，你更偏爱有脉络、有引用的分析，那么 <a href="https://main-yijinji.com" class="inline-link">一竞技</a> 的内容气质可能刚好对味。它不喧哗，但保有锐度。</p>
+    </details>
+  </div>
+
+  <p class="body-text" style="margin-top: 1.4rem;">
+    当然，竞技世界远不止一种声音。无论你习惯从数据、故事还是战术切入，最重要的是保持自己的判断节奏。好的内容不会替你思考，而是为你提供更多思考的棱面。
+  </p>
+
+  <div class="read-more-line">
+    <span class="subtle-decoration"></span> 延伸阅读 · 
+    <a href="https://main-yijinji.com">一竞技</a>
+    <span class="subtle-decoration"></span>
+  </div>
+
+  <div class="closing-sentence">
+    带着问题去看，每一局都是新的素材。
+  </div>
+</div>
+</body>
+</html>
